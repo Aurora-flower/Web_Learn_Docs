@@ -5,9 +5,9 @@
 
 | 前端知识涉及     | 后端知识涉及 | 其他知识 |
 |------------|--------|------|
-| HTML       | C      |      |
-| CSS        | python |      |
-| JavaScript | Java   |      |
+| HTML       | python |      |
+| CSS        |        |      |
+| JavaScript |        |      |
 | Git        |        |      |
 | Node       |        |      |
 | ECMAScript |        |      |
