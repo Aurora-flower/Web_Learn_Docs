@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>ScrollBar_UpAndDown</title>
+		<style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            html, body {
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .wrapper {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            .wrapper .content {
+                text-align: center;
+            }
+
+            .wrapper .scroll {
+                position: absolute;
+                width: 20px;
+                height: 100%;
+                right: 0;
+                top: 0;
+                background: rgba(241, 241, 241);
+                border: 1px solid rgb(204, 204, 204);
+            }
+
+            .wrapper .scroll .slider {
+                position: absolute;
+                width: 100%;
+                height: 100px;
+                background: rgba(216, 216, 216, .5);
+            }
+			.content {
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="content"></div>
+			<div class="scroll">
+				<!--scrollIn-->
+				<div class="slider"></div>
+			</div>
+		</div>
+		<script src="ScrollBar_UpAndDown.js"></script>
+	</body>
+</html>
