@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,
+          user-scalable=no, initial-scale=1.0, 
+          maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>节流</title>
+</head>
+<body>
+	<!-- 节流测试元素 -->
+	<div class="pre_jitter">
+		<button>Click</button>
+	</div>
+	<script>
+        // region >>> 节流（pending）
+        // Tip: 控制单位时间内，事件触发的频率，不允许在有限时间内无限触发；
+
+        let btn = document.getElementsByClassName("pre_jitter")[0];
+        console.log(btn);
+
+        // 点击触发防抖
+        btn.onclick = throttling(function () {
+            console.log(">>> 节流");
+        }, 2000);
+
+
+        function throttling(fn, delay) {
+            // 记录触发状态
+            let flag = true;
+
+            return function () {
+                if (flag) {
+                    setTimeout(() => {
+                        // 完整执行函数，点击状态改为 true
+                        fn();
+                        flag = true;
+                    }, delay);
+                }
+                // 点击后，标记点击状态，不会生成定时器；
+                flag = false;
+            }
+
+        }
+
+        // endregion
+
+        // region >>> Lodash_节流函数实现 throttling
+        // endregion
+	</script>
+</body>
+</html>

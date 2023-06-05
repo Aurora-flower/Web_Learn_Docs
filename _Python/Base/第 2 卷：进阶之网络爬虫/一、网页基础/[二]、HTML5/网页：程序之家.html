@@ -1,0 +1,120 @@
+<!DOCTYPE html>   <!--声明为 HTML5 文档,有助于浏览器中正确显示网页.-->
+
+<html lang="en">     <!-- <html> 元素是HTML页面的根元素-->
+
+
+<!-- 下面具有表现行为的标签与属性都不赞成使用，而应该归到 CSS中-->
+<head>    <!--<head> 元素包含了文档的元（meta）数据-->
+    <meta charset="UTF-8">
+    <!--
+    <meta>:元数据；
+            """元数据 （ Metadata ），又称 中介数据、中继数据，
+        为描述数据的数据（data about data），主要是描述数据属性 （property）的信息
+        ，用来支持如指示存储位置、 历史 数据、 资源 查找、文件记录等功能。"""
+    charset属性：字符编码方式
+    -->
+
+    <title>最牛程序员</title>    <!--<title> 元素描述了文档的标题-->
+
+    <!--样式<网页上显示内容的表现样式>-->
+    <style>
+        ul{
+            list-style:none;
+        }
+        li{
+            display:inline-block;  /*陈列，排版*/
+            width:120px;
+        }
+        a{
+            text-decoration:none;
+            color:green;
+        }
+        li:hover a{
+            color:orange;
+        }
+    </style>
+    <!--
+    第一步：去除列表样式符；
+    第二步：使列表从列项转为横向，间隔为100像素点；
+    第三步：定义超链接列表的颜色为绿色；
+    第四步：当鼠标指针指向超链接时显示为橙色
+    >-->
+    <base target="_blank">
+    <!-- <base> 标签为页面上的所有链接规定默认地址或默认目标。 href 属性：用来设置相对路径的基准值-->
+</head>
+
+<body>      <!--<body> 元素包含了可见的页面内容,定义了 了解HTML 文档的主体。-->
+    <ul>    <!--<ul> 标签定义无序列表。-->
+        <!-- <li> 标签定义列表项目。可用在有序列表 (<ol>) 和无序列表 (<ul>) 中。
+            超链接 a标签：
+                <a href="网址">文字或图片</a>
+            虚拟超链接：
+                <a href="#">文字或图片</a>
+        -->
+
+        <li><a href="https://www.runoob.com/">菜鸟教程</a></li>
+        <li><a href="https://www.csdn.net/" >CSDN社区</a></li>
+        <li><a href="https://www.51zxw.net/">我要自学网</a></li>
+        <li><a href="https://www.php.cn/">php中文网</a></li>
+        <li><a href="https://www.w3school.com.cn/html/index.asp">w3HTML教程</a></li>
+        <li><a href="https://www.jb51.net/">脚本之家</a></li>
+        <li><a href="https://aidaxue.xfyun.cn/">AI学堂</a></li>
+        <li><a href="https://github.com/" >GitHub社区</a></li>
+        <!-- 了解HTML 链接是通过标签 <a> 来定义的,在 href 属性中指定链接的地址。属性值应该始终被包括在引号内 -->
+    </ul>
+
+    <h1>程序之家!</h1>
+    <!-- <h1> 元素定义一个HTML 标题（Heading）,通过<h1> - <h6> 标题标签来定义标题-->
+    <a href="1.jpg" download="壁纸.jpg">
+       壁纸图片
+    </a>
+    <iframe src="1.jpg"  frameborder="0" width="200" height="200"></iframe>
+    <p>WWF is goal is to:
+    <q>Build a future where people live in harmony with nature.</q>   <!-- <q>标签，标记一个短的引用-->
+    We hope they succeed.</p>
+    <!-- <p> 元素定义一个段落,<br> 标签定义换行-->
+    <p>翻译：世界自然基金会的目标是：<br>建立一个人们与自然和谐相处的未来。<br>我们希望他们成功。</p>
+
+    <hr/>
+    <hr/>
+    <h2>Web前端开发</h2>
+
+    <h3>HTML</h3>
+        <!-- font ：字体-->
+        <!-- 属性：
+        可以通过属性来设置标签，处理标签内的内容，则在开始标签中添加属性-->
+        <p>超文本标记语言，用于构建网页，定义网页包括的内容</p>
+    <hr/>
+    <h3>CSS</h3>
+        <p>层叠样式表，用于构建网页布局、外观、美化页面</p>
+    <hr/>
+    <h3>JS</h3>
+        <p>JavaScript脚本语言，用于构建网页行为，与用户进行交互，使用户获得更好的体验</p>
+
+    <div id="end">
+        <hr/>
+        &copy; 花楹一间
+
+        <ul>
+            <!--关于图片文件点击下载：
+                浏览器支持直接打开的文件是不会执行下载任务的。若要实现此功能，须添加download属性。
+            -->
+            联系方式：
+            <li><a href="mailto:3094537574@qq.com">电子邮件</a></li>
+            <!-- <li><a href="tel:18838595390">电话</a></li>-->
+            <!-- <li><a href="sms:18838595390">短信</a></li>-->
+        </ul>
+
+                <!-- 设置脚本script -->
+        <script>
+
+        </script>
+
+
+    </div>
+
+</body>
+
+</html>
+
+

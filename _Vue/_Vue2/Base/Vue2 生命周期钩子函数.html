@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,
+          user-scalable=no, initial-scale=1.0, 
+          maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Vue 生命周期钩子函数</title>
+	<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+	<script src="/Resource/vue_resource/vue.js"></script>
+</head>
+<body>
+	<!-- Vue 应用挂载点（容器） -->
+	<div id="app">
+		<div class="wrap">
+			<!-- Tip: v-model 用于双向数据绑定	-->
+			<label>
+				修改数据: <input type="text" v-model:value="msg">
+			</label>
+
+			<!-- Tip: ref 标识 DOM 元素 - one	-->
+			<div ref="one">Test-One: {{msg}}</div>
+
+			<!-- Tip: v-if 用于条件判断是否渲染元素	 -->
+			<div ref="two" v-if="isShow">Test-Two: {{msg}}</div>
+
+			<!-- Tip: 控制显示（手动更新） -->
+			<button @click="isShow = !isShow"> 是否渲染 </button>
+		</div>
+	</div>
+
+	<script type="module">
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "message.",
+                isShow: false
+            },
+
+            // 1. 初始化数据与事件回调函数的创建前后
+            beforeCreate() {
+                // Tip: 此时，数据、元素为 undefined; （无法获取数据、元素）
+                console.log(">>> 创建前", this, this.msg, this.$refs['one']);
+            },
+
+            created() {
+                // Tip: 此时，this.msg 为 "message" （数据已经初始化，但无法获取到元素）;
+                console.log(">>> 创建后", this, this.msg, this.$refs['one']);
+            },
+
+            // 2. 虚拟 DOM 元素的挂载前后
+            beforeMount() {
+                // Tip: 此时，获取不到 DOM 元素;
+                console.log(">>> 挂载前", this.isShow, this.$refs['one']);
+            },
+            mounted() {
+                // 定时器方式修改数据，触发更新
+                setTimeout(() => {
+                    this.isShow = true;
+                }, 2000);
+
+                // Tip: 此时，数据、元素均可被访问，并进行操作;
+                console.log(">>> 挂载后", this.isShow, this.$refs['one']);
+            },
+
+            // 3. DOM 元素的更新前后(数据的变化触发更新)
+            beforeUpdate() {
+                console.log(">>> 更新前", this.isShow, this.$refs['two']);
+            },
+            updated() {
+                console.log(">>> 更新后", this.isShow, this.$refs['two']);
+            },
+
+            // 4. DOM 元素的卸载销毁前后
+			// Tip:  vm 实例与页面中的 DOM 断开关系，并解除事件的绑定，但数据仍存在;
+            beforeDestroy() {
+                console.log(">>> 卸载销毁前", this.msg, this.$refs['two']);
+            },
+            destroyed() {
+                console.log(">>> 卸载销毁后", this.isShow, this.$refs['two']);
+            }
+        })
+
+        // 手动触发销毁
+        setTimeout(() => {
+            vm.$destroy();
+        }, 10000);
+
+        // console.log(vm); // vm 实例
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,
+          user-scalable=no, initial-scale=1.0, 
+          maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Cesium</title>
+	<!-- 引入 Cesium 核心库 -->
+	<script src="https://cesium.com/downloads/cesiumjs/releases/1.83/Build/Cesium/Cesium.js"></script>
+	<!-- 引入 Cesium 样式文件 -->
+	<link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.83/Build/Cesium/Widgets/widgets.css">
+
+</head>
+<body>
+	<script>
+        var viewer = new Cesium.Viewer('cesiumContainer');
+
+        var options = {
+            enableHighAccuracy: true,
+            maximumAge: 0,
+            timeout: 10000
+        };
+
+        function success(pos) {
+            var position = Cesium.Cartesian3.fromDegrees(pos.coords.longitude, pos.coords.latitude, pos.coords.altitude);
+            viewer.camera.flyTo({
+                destination: position,
+                duration: 1 //飞行所需时间，单位为秒
+            });
+        }
+
+        function error(err) {
+            console.warn(`ERROR(${err.code}): ${err.message}`);
+        }
+
+        navigator.geolocation.getCurrentPosition(success, error, options);
+
+	</script>
+</body>
+</html>

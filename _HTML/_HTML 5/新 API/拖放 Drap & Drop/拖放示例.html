@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>拖放示例</title>
+	<style>
+        #drag-elem {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 10px;
+        }
+
+        #drop-target {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            margin: 10px;
+        }
+	</style>
+</head>
+<body>
+	<div id="drag-elem" draggable="true">可拖动元素</div>
+	<div id="drop-target">目标元素</div>
+	<script>
+		// 两个主要对象: 被拖动的元素 (drag source) 和接收拖放的目标元素 (drop target)。
+        const dragElem = document.getElementById('drag-elem');
+        const dropTarget = document.getElementById('drop-target');
+
+        // 当用户拖动可拖动元素时，会触发 dragstart 事件
+		// Tip: 在该事件中我们指定被拖动元素的数据类型和数据，并设置拖动效果为 move。
+        dragElem.addEventListener('dragstart', function(event) {
+            // 设置数据类型和数据
+            event.dataTransfer.setData('text/plain', '这是一个拖拽的示例');
+            // 设置拖动效果
+            event.dataTransfer.dropEffect = 'move';
+        });
+
+        // 当被拖动元素进入目标元素时，会触发 dragenter 事件
+		// Tip: 可以在该事件中进行一些处理或样式调整。
+        dropTarget.addEventListener('dragenter', function(event) {
+            // 通过 preventDefault 方法来避免浏览器对拖放操作的默认行为。
+            event.preventDefault();
+            dropTarget.style.backgroundColor = 'green';
+        });
+
+        // 在目标元素上持续性地触发 dragover 事件，
+        dropTarget.addEventListener('dragover', function(event) {
+            event.preventDefault();
+        });
+
+        // 当被拖动元素离开目标元素时，会触发 dragleave 事件
+		// Tip: 可以在该事件中进行一些还原操作。
+        dropTarget.addEventListener('dragleave', function(event) {
+            dropTarget.style.backgroundColor = 'yellow';
+        });
+
+        // 当用户将被拖动元素拖放到目标元素上并松手时，会触发 drop 事件
+		// Tip: 可以在该事件中获取被拖动元素的数据并进行相应的处理。
+        dropTarget.addEventListener('drop', function(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData('text/plain');
+            console.log('拖放数据：', data);
+            dropTarget.style.backgroundColor = 'yellow';
+        });
+	</script>
+</body>
+</html>

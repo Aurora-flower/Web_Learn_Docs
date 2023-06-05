@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,
+          user-scalable=no, initial-scale=1.0, 
+          maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Web Worker</title>
+</head>
+<body>
+	<script>
+        // 创建 Web Worker 实例
+        /** new Worker:
+         * 1. new Worker 是 JavaScript 中用于创建 Web Worker 实例的构造函数。
+         * Web Worker 是在主线程之外运行的独立代码单位，它能够并发执行 JavaScript 代码，并且不会对主线程产生阻塞。
+         *
+         * 2. 当使用 new Worker(URL) 时，将会在后台启动一个新线程，并在该线程中执行 URL 所指定的 JavaScript 脚本。
+         *  需要注意的是，这个 URL 必须满足同源策略，也就是说只能与当前脚本位于同一协议、主机名和端口号的资源进行通信。
+         *
+         * 3. 使用 Web Worker 的好处在于可以在后台处理一些耗时的计算任务，比如数据处理或图像处理。在这种情况下，主线程可以继续响应用户的操作，提高了网页的反应速度。
+         *
+         * Tip: 由于 Worker 线程和主线程是两个独立的执行环境，
+         * 因此它们之间的通信需要使用 postMessage 方法来发送消息，
+         * 或者在 message 事件处理函数中监听接收到的消息。
+         * */
+        const worker = new Worker('/_JavaScript/Web Worker 分线程/worker.js')
+
+        // 监听 message 事件，在接收到子线程发送的消息时进行处理
+        worker.onmessage = (event) => {
+            console.log(`接收到来自子线程的消息：${event.data}`)
+        }
+
+        // 向子线程发送消息
+        worker.postMessage('Hello, World!')
+
+
+        // 终止 Worker 实例
+        // Tip: 当不再需要使用 Worker 实例时，最好手动将其终止，释放资源。
+        // worker.terminate();
+	</script>
+</body>
+</html>

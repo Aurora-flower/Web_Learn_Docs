@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,
+          user-scalable=no, initial-scale=1.0, 
+          maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS_PDF</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+	<button id="btn-generate">生成 PDF</button>
+	<script>
+        // 获取按钮元素
+        const btn = document.getElementById('btn-generate');
+
+        // 绑定按钮点击事件
+        btn.addEventListener('click', () => {
+            // 创建一个新的 jsPDF 实例
+            const doc = new jsPDF();
+
+            // 向 PDF 文件中添加文本
+            doc.text('Hello World!', 10, 10);
+
+            // 将 PDF 文件保存到本地
+            doc.save('hello_world.pdf', {});
+        });
+
+	</script>
+</body>
+</html>

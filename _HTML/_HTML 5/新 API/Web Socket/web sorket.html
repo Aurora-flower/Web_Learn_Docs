@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<h1>WebSockets 示例</h1>
+	<label for="message"></label><input type="text" id="message" />
+	<button onclick="sendMessage()">发送</button>
+	<ul id="messages"></ul>
+
+	<script>
+		// WebSockets 是一种基于帧的协议，它提供了双向通信通道，使得浏览器和服务器之间可以实时传递数据。
+        var socket = new WebSocket("ws://localhost:8080");
+        socket.onmessage = function(event) {
+            var message = event.data;
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(message));
+            document.getElementById("messages").appendChild(li);
+        };
+
+        function sendMessage() {
+            var message = document.getElementById("message").value;
+            socket.send(message);
+            document.getElementById("message").value = "";
+        }
+	</script>
+</body>
+</html>

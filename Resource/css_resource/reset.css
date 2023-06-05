@@ -1,0 +1,65 @@
+
+/*  html，body   */
+/*  h 标题； ul\ol\dl>li\dt\dd 列表标签;   input表单 > textarea\option\button\fieldset;  legend; hr  */
+html,body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,dd,li,input,textarea,option,button,fieldset,legend,hr{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style:none;
+}
+a {
+    text-decoration: none;
+}
+img {
+    display:block;
+    border:none;
+}
+input ,textarea ,fieldset{
+    outline: none;
+    border:none;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+    font-size:100%;
+}
+b,strong {
+    font-weight: normal;
+}
+em,i {
+    font-style:normal;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+textarea {
+    /* 取消可拖拽效果 */
+    resize: none;
+}
+.clearFix::after{
+    content:'';
+    display:block;
+    clear:both;
+    height:0;
+    overflow:hidden;
+    visibility: hidden;
+}
+.clearFix{
+    zoom:1;
+}
+.left {
+    float:left;
+}
+.right {
+    float:right;
+}
+
+/*移动端无字体和字号的设置，以系统设置为准*/
+body {
+    font:12px '微软雅黑';
+    /* min-width:1000px; */
+}
+.borderNone {
+    border:none !important;
+}

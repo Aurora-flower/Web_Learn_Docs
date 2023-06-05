@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,
+          user-scalable=no, initial-scale=1.0, 
+          maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>rem 适配</title>
+	<style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /*
+		设计稿：
+			width 750 —— 75
+			height 1200 —— 120
+		*/
+
+
+        /* 元素：350 * 480 */
+        .box {
+            width: 5rem;
+            height: 4rem;
+            line-height: 4rem;
+            color: #bfcbd9;
+            font-size: 1rem;
+            text-align: center;
+            background: #1f2d3d;
+            margin: 1rem auto;
+        }
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		BOX
+	</div>
+	<script>
+
+        // DPR: 物理像素 / 设备独立像素
+        console.log(">>> DPR:", window.devicePixelRatio);
+
+        // region >>> rem 适配
+
+        const resetRem = () => {
+            let rootValue = document.documentElement.clientWidth; // 设备根标签宽度 - rem 大小
+            let InitRem = rootValue / 10; // rem 基准- 基于 root 跟标签的字体大小的像素单位
+
+            document.documentElement.style.fontSize = InitRem + "px";
+            document.body.style.fontSize = 16 + "px";
+        }
+
+        window.addEventListener("pageshow", () => {
+            resetRem();
+        })
+
+        window.addEventListener("resize", () => {
+            resetRem();
+        })
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,
+          user-scalable=no, initial-scale=1.0, 
+          maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Vue 非脚手架应用的实例创建</title>
+
+	<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+	<script src="/Resource/vue_resource/vue.js"></script>
+
+	<!-- 生产环境版本，优化了尺寸和速度 -->
+	<!--<script src="./js/vue_resource/vue@2.js"></script>-->
+</head>
+<body>
+	<!-- Vue 应用挂载点（容器） -->
+	<div id="app">
+		<!-- 插值语法，"{{}}" 为 javascript 语句分隔符  -->
+		<div class="content"> {{ message }}</div>
+	</div>
+
+	<script type="module">
+        // 创建 vm 实例 - 传入一个 options 选项对象
+        let vm = new Vue({
+            // 元素选择器，标记渲染容器
+            el: "#app",
+            // data 数据 - 对象形式
+            data: {
+                message: "hello world"
+            },
+        })
+        console.log(">>> vm 实例:", vm);
+	</script>
+
+</body>
+</html>

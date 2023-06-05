@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+body{
+    /*background: rgb(188, 242, 237);*/
+    background: url("asset/knight.jpg");
+    /*
+    关键字：
+    background-size: cover
+    background-size: contain
+    两个值：
+    第一个值指定图片的宽度，第二个值指定图片的高度
+    */
+    background-size: cover;
+}
+
+.img-list {
+    width: 400px;
+    height: 500px;
+    /* 位置宽高元素的居中显示 */
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    transform-style: preserve-3d;
+    animation:amour 20s linear infinite;
+}
+.img-list li{
+    width: 600px;
+    height: 800px;
+    position:absolute;
+    top:0;
+    lefT:0;
+}
+.img-list img{
+    width: 100%;
+    height: 100%;
+}
+.img-list li:nth-child(1){
+    transform: rotateY(36deg) translateZ(1200px);
+}
+.img-list li:nth-child(2){
+    transform: rotateY(72deg) translateZ(1200px);
+}
+.img-list li:nth-child(3){
+    transform: rotateY(108deg) translateZ(1200px);
+}
+.img-list li:nth-child(4){
+    transform: rotateY(144deg) translateZ(1200px);
+}
+.img-list li:nth-child(5){
+    transform: rotateY(180deg) translateZ(1200px);
+}
+.img-list li:nth-child(6){
+    transform: rotateY(216deg) translateZ(1200px);
+}
+.img-list li:nth-child(7){
+    transform: rotateY(252deg) translateZ(1200px);
+}
+.img-list li:nth-child(8){
+    transform: rotateY(288deg) translateZ(1200px);
+}
+.img-list li:nth-child(9){
+    transform: rotateY(324deg) translateZ(1200px);
+}
+.img-list li:nth-child(10){
+    transform: rotateY(360deg) translateZ(1200px);
+}
+
+@keyframes amour {
+    0%{
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        transform: rotateX(30deg) rotateY(360deg);
+    }
+}

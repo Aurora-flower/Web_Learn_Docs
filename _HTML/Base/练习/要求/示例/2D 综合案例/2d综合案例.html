@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 360px;
+				height: 240px;
+				border: solid;
+				margin: 100px auto;
+				position: relative;
+				overflow: hidden;
+				/* transition: all 2s 1.5s; */
+			}
+			.box:hover{
+				/* transform: rotate(3600deg); */
+			}
+			.box img{
+				display: block;
+				transition: all .5s 1s;
+			}
+			.box:hover img{
+				transform: scale(1.2);
+			}
+			.box::before{
+				content: "";
+				width: 0px;
+				height: 180px;
+				border-top: 1px solid #fff;
+				border-bottom: 1px solid #fff;
+				position: absolute;
+				left:50%;
+				top:50%;
+				margin-left: -160px;
+				margin-top: -90px;
+				/* 由于img做缩放,相当于自带定位,层级会高于before,压住before */
+				z-index: 1;
+				transition: all .5s;
+			}
+			.box:hover::before{
+				width: 320px;
+			}
+			
+			.box::after{
+				content: "";
+				width: 300px;
+				height: 0px;
+				border-left: 1px solid #fff;
+				border-right: 1px solid #fff;
+				position: absolute;
+				left:50%;
+				bottom:50%;
+				margin-left: -150px;
+				margin-bottom: -100px;
+				
+				transition: all .5s;
+			}
+			.box:hover::after{
+				height: 200px;
+			}
+			.box h3{
+				width: 207px;
+				height: 40px;
+				position: absolute;
+				left:0;
+				right:0;
+				top:55px;
+				margin: 0 auto;
+				font-size: 30px;
+				color: #fff;
+				transition: all .5s .5s;
+			}
+			.box:hover h3{
+				text-shadow: 1px 1px 20px orangered;
+			}
+			.box h5{
+				position: absolute;
+				left:0;
+				right: 0;
+				bottom:0px;
+				margin: 0 auto;
+				text-align: center;
+				font-size: 20px;
+				color: #fff;
+				opacity: 0;
+				transition: all .5s .5s;
+			}
+			.box:hover h5{
+				text-shadow: 1px 1px 5px yellowgreen;
+				opacity: 1;
+				bottom: 80px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img src="img/img_02.jpg" >
+			<h3>HTML5+CSS3</h3>
+			<h5>web前端0826班</h5>
+		</div>
+	</body>
+</html>

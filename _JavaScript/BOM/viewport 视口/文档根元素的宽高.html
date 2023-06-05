@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,
+          user-scalable=no, initial-scale=1.0, 
+          maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>文档根元素的视口</title>
+</head>
+<body>
+	<button class="btn"> click me </button>
+	<script>
+        let btn = document.querySelector(".btn");
+        btn.addEventListener("click", function (event) {
+            // 返回文档根元素的宽度和高度，不包括滚动条和边框
+            console.log(">>> Document viewport:",
+				document.documentElement.clientWidth,
+				document.documentElement.clientHeight
+			)
+
+            // 返回文档根元素的宽度和高度，包括滚动条和边框
+            console.log(">>> Document viewport - Real:",
+                document.documentElement.scrollWidth,
+                document.documentElement.scrollHeight
+            )
+
+			// 也可用来获取事件元素的宽高
+            console.log(">>> event.target viewport:",
+                // 下面的代码，等同于 scrollWidth | scrollHeight 属性的结果
+                event.target.clientWidth,
+                event.target.clientHeight
+            )
+
+        })
+
+	</script>
+</body>
+</html>

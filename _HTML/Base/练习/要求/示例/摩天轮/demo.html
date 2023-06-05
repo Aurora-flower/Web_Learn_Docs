@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;padding:0;
+		}
+		body,html{
+			height:100%;
+		}
+		body{
+			background: url(images/2.jpg) no-repeat ;
+			background-size:100% 100%;
+		}
+		img{
+			display:block;
+		}
+		section{
+			width:768px;
+			height:768px;
+			position: fixed;
+			left:0;
+			right:0;
+			top:0;
+			bottom:0;
+			margin:auto;
+			background:url(images/bracket.png) no-repeat center 384px;
+			
+		}
+		section img:first-of-type{
+			animation: rotateYuan 20s linear infinite;
+		}
+		section img:nth-of-type(2){
+			position:fixed;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			margin:auto;
+
+		}
+		div{
+			width:768px;
+			height:768px;
+			position:fixed;
+			left:0;
+			right:0;
+			top:0;
+			bottom:0;
+			margin:auto;
+			animation: rotateYuan 20s linear infinite;
+		}
+		div img{
+			position:absolute;
+			animation: rotateChild 20s linear infinite;
+			transform-origin:50% 0;
+		}
+		div img:first-child{
+			left:325px;top:30px;
+		}
+		div img:nth-child(2){
+			left:-30px;top:350px;
+		}
+		div img:nth-child(3){
+			left:325px;bottom:-150px;
+		}
+		div img:nth-child(4){
+			right:-30px;top:350px;
+		}
+		div img:nth-child(5){
+			left:54px;top:120px;
+		}
+		div img:nth-child(6){
+			right:54px;top:120px;
+		}
+		div img:nth-child(7){
+			left:54px;top:620px;
+		}
+		div img:nth-child(8){
+			right:54px;top:620px;
+		}
+		@keyframes rotateYuan{
+			0%{transform: rotate(0)}
+			50%{transform: rotate(180deg)}
+			100%{transform: rotate(360deg)}
+		}
+		@keyframes rotateChild{
+			0%{transform: rotate(0)}
+			50%{transform: rotate(-180deg)}
+			100%{transform: rotate(-360deg)}
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<img src="images/fsw.png" alt="">
+		<img src="images/big-title.png" alt="">
+	</section>
+	<div>
+		<img src="images/boy.png" alt="">
+		<img src="images/girl.png" alt="">
+		<img src="images/girls.png" alt="">
+		<img src="images/hairboy.png" alt="">
+		<img src="images/mimi.png" alt="">
+		<img src="images/dog.png" alt="">
+		<img src="images/mudog.png" alt="">
+		<img src="images/shamegirl.png" alt="">
+	</div>
+	<audio autoplay loop src="aaa.mp3"></audio>
+</body>
+</html>

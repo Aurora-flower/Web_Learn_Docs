@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		html,body{
+			height:100%;
+		}
+		body{
+			background:url(images/bg2.jpg) no-repeat;
+			background-size: cover;
+		}
+		.show{
+			width:280px;
+			height:400px;
+			position:fixed;
+			left:0;
+			right:0;
+			top:0;
+			bottom:0;
+			margin:auto;
+			animation:play 60s linear infinite;
+			-moz-transform-style:preserve-3d;
+			-webkit-transform-style:preserve-3d;
+		}
+		.show img{
+			width:280px;
+			height:400px;
+			position:absolute;
+			top:0;left:0;
+			transition:all 1s;
+			background:#fff; 
+			backface-visibility: visible;}
+		.show img:nth-child(1){
+			transform: rotateY(0deg) translateZ(650px);
+
+		}
+		.show img:nth-child(2){
+			transform: rotateY(36deg) translateZ(600px);
+		}
+		.show img:nth-child(3){
+			transform: rotateY(72deg) translateZ(600px);
+		}
+		.show img:nth-child(4){
+			transform: rotateY(108deg) translateZ(600px);
+		}
+		.show img:nth-child(5){
+			transform: rotateY(144deg) translateZ(600px);
+		}
+		.show img:nth-child(6){
+			transform: rotateY(180deg) translateZ(600px);
+		}
+		.show img:nth-child(7){
+			transform: rotateY(216deg) translateZ(600px);
+		}
+		.show img:nth-child(8){
+			transform: rotateY(252deg) translateZ(600px);
+		}
+		.show img:nth-child(9){
+			transform: rotateY(288deg) translateZ(600px);
+		}
+		.show img:nth-child(10){
+			transform: rotateY(324deg) translateZ(600px)
+		}
+
+		
+		@keyframes play{
+			0%{transform:rotateX(0) rotateY(0);}
+			25%{transform:rotateX(20deg) rotateY(180deg);}
+			50%{transform:rotateX(0) rotateY(360deg);}
+			75%{transform:rotateX(-20deg) rotateY(540deg);}
+			100%{transform:rotateX(0) rotateY(720deg);}
+		}
+		.love{width:124px;position:fixed; right:0;bottom:0;}
+
+	</style>
+</head>
+<body>
+	<div class="show">
+		<img src="images/pic1.jpg" alt="" />
+		<img src="images/pic2.png" alt="" />
+		<img src="images/pic3.png" alt="" />
+		<img src="images/pic4.png" alt="" />
+		<img src="images/pic5.jpg" alt="" />
+		<img src="images/pic6.png" alt="" />
+		<img src="images/pic7.png" alt="" />
+		<img src="images/pic8.png" alt="" />
+		<img src="images/pic9.png" alt="" />
+		<img src="images/pic10.png" alt="" />
+	</div>
+	<audio src="images/aaaaa.mp3" autoplay loop></audio>
+    <img class="love" src="images/a.gif"/>
+</body>
+</html>

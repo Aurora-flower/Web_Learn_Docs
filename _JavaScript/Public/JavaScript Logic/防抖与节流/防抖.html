@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,
+          user-scalable=no, initial-scale=1.0, 
+          maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>防抖</title>
+</head>
+<body>
+	<!-- 防抖测试元素 -->
+	<div class="pre_jitter">
+		<button>Click</button>
+	</div>
+	<script>
+        // region >>> 防抖
+        // 控制单位时间内的事件触发，防止重复执行；
+
+
+        let btn = document.getElementsByClassName("pre_jitter")[0];
+        console.log(btn);
+
+        // 点击触发防抖
+        btn.onclick = debounce(function () {
+            console.log(">>> 防抖");
+        }, 2000);
+
+        // debounce 防抖
+        // Tip：接收两个参数（函数，延迟时间）
+        function debounce(fn, delay) {
+            let timer;
+            // 返回一个函数
+            return function () {
+                // 清除上一次的定时器 timer
+                // Tip: 一段时间内多次点击，也只执行最后一次；
+                clearTimeout(timer);
+                // 定时器函数
+                timer = setTimeout(fn, delay);
+            }
+        }
+
+        // endregion
+
+        // region >>> Lodash_防抖函数实现 debounce
+		// endregion
+	</script>
+</body>
+</html>
